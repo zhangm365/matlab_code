@@ -1,0 +1,28 @@
+This package is to solving online matrix inversion problem via gradient-based recurrent neural network.
+
+Realised Date: Oct 26th, 2013
+Version: v1
+Author: Ke Chen
+If you find any bug in the code, please feel free to contact me via kechen@ieee.org.
+
+------------------------------------------------------------
+How to play with this package
+------------------------------------------------------------
+
+Step 1. set the matrix to be inverted in MatrixA.m file. Please note that, only constant matrix can be set here.
+Step 2. set the activation function in the last line of GnnRightHandSide.m (convergence analysis) and GnnRightHandSideImprecise.m
+Step 3. Run the code
+
+Convergence Analysis
+>> GnnConvergence(gamma)
+where gamma is the parameter to adjust the convergence rate. NB. default value of gamma is 1. 
+
+Robustness Analysis
+>> GnnRobust(gamma)
+>> GnnNormError(gamma)
+
+
+More details can be found in our paper:
+
+[1] Yunong Zhang, Ke Chen, Weimu Ma, and Xiao-Dong Li, MATLAB Simulation of Gradient-Based Neural Network for Online Matrix Inversion, 
+Proceedings of International Conference on Intelligent Computing, pp. 98-107, 2007.
