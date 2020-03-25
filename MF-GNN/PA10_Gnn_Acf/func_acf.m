@@ -1,4 +1,4 @@
-function dY = func(t, y)
+function dY = func_acf(t, y)
 
 global mu gamma iota Td dJHat acf noise;
 
