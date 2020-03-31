@@ -1,6 +1,7 @@
 clear;
 format long;
-load data\INITdata500.mat;
+load data\INITdata210.mat;
+load data\parameter210.mat;
 
 iota = 0.15;
 Td = 20;
@@ -63,6 +64,7 @@ legend('Ex','Ey','Ez','Location','best');
 hold off;
 xlabel('t (s)');
 ylabel('error (mm)');
-title('\gamma=500, \mu = 500');
+
+title(['\gamma=', num2str(gamma_t), ',  \mu=', num2str(mu_t)]);
 % savefig('result\errorCircle_50.fig');
 
