@@ -1,6 +1,6 @@
 function dY = func(t, y)
 
-global mu gamma iota Td  
+global mu_t gamma_t iota Td acf
 q = y(1:6);
 JHat = reshape(y(7:24),[3,6]);
 
@@ -18,12 +18,13 @@ xd = [xdx; xdy; xdz];
 xa = [xax; xay; xaz]; 
 
 %dq = pinv(JHat)*(dxd+mu*(xd-xa));
-dq = JHat'*(mu*(xd-xa));
-
+dq = JHat'*(mu_t*ACF(xd-xa,acf));
+% dq = JHat'*(mu_t*(xd-xa));
 % % Jacobian matrix and its derivative
 J = Jacobian(q);
 
-dJHat = gamma*(J*dq-JHat*dq)*dq';
+dJHat = gamma_t*ACF((J*dq-JHat*dq),acf)*dq';
+% dJHat = gamma_t*(J*dq-JHat*dq)*dq';
 DJHat = reshape(dJHat,[18,1]);
 
 dY=[dq;DJHat];

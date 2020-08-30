@@ -1,14 +1,17 @@
-clear all;
+clear;
 format long;
 
-global mu gamma iota Td d i tpre ;
-mu = 100;
-gamma = 100;
+global mu_t gamma_t iota Td d i tpre acf ;
+mu_t = 100;
+gamma_t = 100;
 iota = 0.15;
 Td = 20; 
 d = 0.05;
 i = 1;
 tpre = 0;
+
+% acf parameter
+acf = 1;
 
 %Initial value
 q0 = [0.2000, 0.2200, 0.1800, 0.2000, 0.1800, 0.2200]';
@@ -26,4 +29,4 @@ size(t)
 size(y)
 
 save data\INITdata100 t y;
-save data\parameter100 mu gamma iota Td q0 JHat0 ;
+save data\parameter100 mu_t gamma_t iota Td q0 JHat0 ;

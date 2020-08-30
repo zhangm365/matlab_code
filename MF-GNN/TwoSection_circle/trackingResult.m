@@ -1,6 +1,7 @@
 clear;
 format long;
 load data\INITdata100.mat;
+load data\parameter100.mat;
 global d;
 d = 0.05;
 iota = 0.15;
@@ -52,16 +53,16 @@ zlabel('Z (m)');
 %Îó²î·ÖÎö
 figure;
 Te = 0:step*inteval:20;
-plot(Te,[0;Error(:,1)]'*1000,'-');
+plot(Te,[0;Error(:,1)]'*1000,'b','linewidth',2);
 % plot(Te,Error(:,1)','-');
 hold on;
-plot(Te,[0;Error(:,2)]'*1000,'-');
+plot(Te,[0;Error(:,2)]'*1000,'g','linewidth',2);
 % plot(Te,Error(:,2)','--');grid on;
-plot(Te,[0;Error(:,3)]'*1000,'-');
+plot(Te,[0;Error(:,3)]'*1000,'r','linewidth',2);
 % plot(Te,Error(:,3)','-.');
 RMSE = round(sqrt(sum(Error(:,1).^2 + Error(:,2).^2 + Error(:,3).^2)/number)*1000, 4);
 annotation = strcat('RMSE=',mat2str(RMSE),'mm');
-text(8, -0.2, annotation, 'fontsize', 14, 'FontName', 'times new Roman');
+text(7.5, -0.2, annotation, 'fontsize', 15, 'FontName', 'times new Roman');
 % legend('Ex','Ey','Ez','Location','best');
 legend('Ex','Ey','Ez','Location','best', 'FontName', 'times new Roman');
 hold off;
@@ -69,6 +70,6 @@ hold off;
 % ylabel('error (m)');
 xlabel('Time (s)', 'FontName', 'times new Roman','fontsize', 15);
 ylabel('Error (mm)', 'FontName', 'times new Roman','fontsize', 15);
-title('\gamma=100, \mu = 100','fontsize', 15);
+title(['\gamma=', num2str(gamma_t), ',  \mu=', num2str(mu_t)],'fontsize', 15);
 % savefig('result\errorCircle_50.fig');
 
