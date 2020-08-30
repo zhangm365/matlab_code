@@ -47,7 +47,7 @@ hold off;
 xlabel('X (mm)');
 ylabel('Y (mm)');
 zlabel('Z (mm)');
-savefig('result\circleTrack_500.fig');
+% savefig('result\circleTrack_500.fig');
 
 %Îó²î·ÖÎö
 figure;
