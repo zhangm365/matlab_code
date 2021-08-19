@@ -25,9 +25,9 @@ rdz = iota*cos(pi/6)*(exp(sin(T./Td.*2*pi))-2*cos(4*(T./Td.*2*pi))+sin(1/24*(2*(
 for i = 1:number
     q = U(i,1:6)';
     [px, py, pz] = position(q);
-    %Ä©¶Ë
+    %
     actualPosition(i, 1:3) = [px, py, pz];
-    %Îó²î
+    %
     Error(i,:) = [px-rdx(i), py-rdy(i), pz-rdz(i)];
 end
 figure;
@@ -41,7 +41,7 @@ ylabel('Y (m)','fontsize', 15);
 zlabel('Z (m)','fontsize', 15);
 % savefig('results\Circle.fig');
 
-%Îó²î·ÖÎö
+%
 figure;
 Te = 0:step:20;
 plot(Te,Error(:,1)*1000','-', 'linewidth', 2);
@@ -71,6 +71,6 @@ plot(t, q6*1000, 'y:', 'linewidth', 2);
 hold off;
 xlabel('Time (s)', 'FontName', 'times new Roman','fontsize', 15);
 ylabel('Bellow length (mm)', 'FontName', 'times new Roman','fontsize', 15);
-legend('u21', 'u22', 'u23','u11', 'u12', 'u13', 'FontName', 'times new Roman');
+legend('w21', 'w22', 'w23','w11', 'w12', 'w13', 'FontName', 'times new Roman');
 % savefig('results\circleBellowsKalman.fig');
 

@@ -14,7 +14,7 @@ Error = zeros(number,3);
 index = 0;
 
 step = 0.01;
-%Ä¿±ê¹ì¼£
+%ç›®æ ‡è½¨è¿¹
 T = 0:step:20;
 % %circle
 rdx = iota*cos(2*pi*sin(0.5*pi*T/Td).^2)-iota+0.0907;
@@ -25,15 +25,15 @@ rdz = iota*sin(pi/6)*sin(2*pi*sin(0.5*pi*T/Td).^2)+0.3859;
 % rdy = iota*cos(pi/6)*cos(4*pi*sin(0.5*pi*T/Td).^2).*sin(2*pi*sin(0.5*pi*T/Td).^2)+0.00001;
 % rdz = iota*sin(pi/6)*cos(4*pi*sin(0.5*pi*T/Td).^2).*sin(2*pi*sin(0.5*pi*T/Td).^2)+0.3859;
 
-%Êµ¼Ê¹ì¼£
+%å®é™…è½¨è¿¹
 for i = 1:length(t)
     if (rem(i, inteval)==0)
         q = y(i,1:6)';
         index = index + 1;
         [px, py, pz] = position(q);
-        %Ä©¶Ë
+        %æœ«ç«¯
         pos(index, 1:3) = [px, py, pz];
-        %Îó²î
+        %è¯¯å·®
         Error(index,:) = [px-rdx(i), py-rdy(i), pz-rdz(i)];
     end
 end
@@ -50,7 +50,7 @@ ylabel('Y (m)');
 zlabel('Z (m)');
 % savefig('result\circleTrack_50.fig');
 
-%Îó²î·ÖÎö
+%è¯¯å·®åˆ†æ
 figure;
 Te = 0:step*inteval:20;
 plot(Te,[0;Error(:,1)]'*1000,'b','linewidth',2);

@@ -12,20 +12,20 @@ Error = zeros(number,3);
 
 step = 0.01;
 
-%目标轨迹
+% 鐩爣杞ㄨ抗
 T = 0:step:20;
 xdx = iota*(exp(sin(T./Td.*2*pi))-2*cos(4*(T./Td.*2*pi))+sin(1/24*(2*(T./Td.*2*pi)-pi)).^5).*cos(T./Td.*2*pi)+iota+90.7;
 xdy = iota*(exp(sin(T./Td.*2*pi))-2*cos(4*(T./Td.*2*pi))+sin(1/24*(2*(T./Td.*2*pi)-pi)).^5).*sin(T./Td.*2*pi);
 xdz = iota*cos(pi/6)*(exp(sin(T./Td.*2*pi))-2*cos(4*(T./Td.*2*pi))+sin(1/24*(2*(T./Td.*2*pi)-pi)).^5).*sin(T./Td.*2*pi)+385.9;
 
 
-%实际轨迹
+% 瀹為檯杞ㄨ抗
 for i = 1:length(t)
     q = y(i,1:6)';
     [px, py, pz] = position(q);
-    %末端
+    %
     actualPosition(i, 1:3) = [px, py, pz];
-    %误差
+    %
     Error(i,:) = [px-xdx(i), py-xdy(i), pz-xdz(i)];
 end
 figure;
@@ -45,7 +45,7 @@ ylabel('Y (m)', 'FontName', 'times new Roman','fontsize',15);
 zlabel('Z (m)', 'FontName', 'times new Roman','fontsize',15);
 % savefig('results\Circle_50.fig');
 
-%误差分析
+%
 figure;
 Te = 0:step:t(number);
 p1 = plot(Te,Error(:,1)','-.', 'linewidth', 2);
@@ -65,12 +65,12 @@ hold off;
 set(gca,'FontSize',12);
 xlabel('Time (s)', 'FontName', 'times new Roman','fontsize',15);
 ylabel('Error (mm)', 'FontName', 'times new Roman','fontsize',15);
-set(gca,'YLim',[-1,1]);%X轴的数据显示范围
+set(gca,'YLim',[-1,1]);
 % title('\gamma=20, \mu = 20');
 % savefig('results\circleError.fig');
 
 
-% 驱动器变化
+% 
 q1 = y(:, 1)'; q2 = y(:, 2)'; q3 = y(:, 3)'; q4 = y(:, 4)'; q5 = y(:, 5)'; q6 = y(:, 6)';
 figure;
 plot(t, q1, 'r-', 'linewidth', 2);%grid on;
@@ -84,10 +84,10 @@ hold off;
 set(gca,'FontSize',12);
 xlabel('Time (s)', 'FontName', 'times new Roman','fontsize',15);
 ylabel('Bellow length (mm)', 'FontName', 'times new Roman','fontsize',15);
-legend('a11', 'a12', 'a13','a21', 'a22', 'a23', 'FontName', 'times new Roman','fontsize',12);
+legend('w11', 'w12', 'w13','w21', 'w22', 'w23', 'FontName', 'times new Roman','fontsize',12);
 % savefig('results\circleBellowsNoFeedback.fig');
 
-% % 二范数
+% % 
 % L2Error = sqrt(Error(:,1).^2+Error(:,2).^2+Error(:,3).^2);
 % figure;
 % plot(Te, L2Error, 'g-', 'linewidth', 2);
@@ -106,7 +106,7 @@ legend('a11', 'a12', 'a13','a21', 'a22', 'a23', 'FontName', 'times new Roman','f
 % end
 % 
 % plot(Te, bound*1000, 'r-','linewidth', 2);
-% % set(gca,'YLim',[0,0.5]);%X轴的数据显示范围
+% % set(gca,'YLim',[0,0.5]);
 % xlabel('Times (s)', 'FontName', 'times new Roman');
 % ylabel('||e(t)||_F (mm)', 'FontName', 'times new Roman');
 
