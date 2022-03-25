@@ -11,7 +11,7 @@ i = 1;
 tpre = 0;
 
 % acf parameter
-acf = 1;
+acf = 7;
 
 %Initial value
 q0 = [0.2000, 0.2200, 0.1800, 0.2000, 0.1800, 0.2200]';

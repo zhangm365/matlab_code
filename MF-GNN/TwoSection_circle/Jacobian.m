@@ -1,4 +1,4 @@
-function J = Jacobian2(q)
+function J = Jacobian(q)
 
 load data\JacobianData1.mat
 
