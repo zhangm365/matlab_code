@@ -1,6 +1,6 @@
 clear;
-% addpath('functions');
-% addpath('drawManipulator');
+addpath('functions');
+addpath('drawManipulator');
 load data\circleTrackingData.mat;
 load data\circleParameter.mat
 
