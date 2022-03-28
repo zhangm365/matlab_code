@@ -27,7 +27,7 @@ Td = 20; % task duration
 subTime = 0;
 
 tau = 0.01; % step size
-h = 0.4;
+h = 4;
 acf = 7;    % the ACF 
 % allocate the memory
 theta = zeros(6, Td/tau);

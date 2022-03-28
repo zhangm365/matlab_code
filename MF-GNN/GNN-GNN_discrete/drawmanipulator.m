@@ -1,6 +1,6 @@
 clear;
 format long;
-load data/INITdata10.mat;
+load data/INITdata100_7.mat;
 addpath('functions');
 
 %Jaco机械臂模型参数
@@ -59,8 +59,9 @@ grid on;
 hold off;
 axis equal;
 view(3);
-legend(pd,'Desired trajectory', 'best', 'FontName', 'times new Roman', 'fontsize', 24);
-set(gca,'FontSize', 24);
-xlabel('X (m)', 'FontName', 'times new Roman','fontsize',26);
-ylabel('Y (m)', 'FontName', 'times new Roman','fontsize',26);
-zlabel('Z (m)', 'FontName', 'times new Roman','fontsize',26);
+% legend(pd,'Desired trajectory', 'best', 'FontName', 'times new Roman', 'fontsize', 24);
+legend(pd,'期望轨迹', 'Location', 'best', 'fontsize', 16);
+set(gca,'FontSize', 16);
+xlabel('X (m)', 'FontName', 'times new Roman','fontsize',16);
+ylabel('Y (m)', 'FontName', 'times new Roman','fontsize',16);
+zlabel('Z (m)', 'FontName', 'times new Roman','fontsize',16);
