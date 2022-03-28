@@ -1,7 +1,7 @@
 clear;
-load data\JointAngle.mat;
-load data\ObjectPosition.mat;
-load data\JointVelocity.mat;
+load data_1.5\JointAngle_circle.mat;
+load data_1.5\ObjectPosition_pen.mat;
+load data_1.5\JointVelocity_pen.mat;
 
 format long;
 
@@ -107,7 +107,7 @@ plot(Te,[0;Error(:,3)]','b-');
 % plot(Te,Error(:,3)','-.');
 RMSE = round(sqrt(sum(Error(:,1).^2 + Error(:,2).^2 + Error(:,3).^2)/numbers), 4);
 annotation = strcat('RMSE=',mat2str(RMSE),'m');
-text(22, -0.05, annotation, 'fontsize', 15, 'FontName', 'times new Roman');
+text(21, -0.15, annotation, 'fontsize', 15, 'FontName', 'times new Roman');
 legend('Ex','Ey','Ez','Location','best', 'FontName', 'times new Roman');
 hold off;
 % xlabel('t (s)');
