@@ -30,10 +30,10 @@ step = 0.01;
 % Distance from module center to actuators
 d = 0.05;
 % Initial covariance matrix of the process noise
-Q = 5e-9;
+Q = 5e-8;
 zeta = sqrt(Q)*randn(Td/step+1,18);
 % Covariance matrix of the measurement noise
-R = 5e-9;
+R = 5e-8;
 delta = sqrt(R)*randn(Td/step+1,3);
 % Innovation sequence
 vk = zeros([Td/step+1,3]);
