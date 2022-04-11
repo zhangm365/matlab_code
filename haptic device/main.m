@@ -1,7 +1,7 @@
 clear;
-load data\JointAngle.mat;
-load data\ObjectPosition.mat;
-load data\JointVelocity.mat;
+load data_1.5\JointAngle_circle.mat;
+load data_1.5\ObjectPosition_circle.mat;
+load data_1.5\JointVelocity_circle.mat;
 
 format long;
 
@@ -29,7 +29,8 @@ ylabel('JointAngle (deg)', 'FontName', 'times new Roman','fontsize',20);
 ax = gca;
 ax.YAxis.Exponent = 2;
 
-% show each joint angle
+%% show each joint angle
+%{
 figure;
 plot(Te, [0;joint_angle(:,1)]', 'r','linewidth', 1);
 
@@ -73,6 +74,7 @@ ylabel('Joint7Angle (deg)', 'FontName', 'times new Roman','fontsize',20);
 
 
 hold off;
+%}
 
 %% % actual & desired path
 [numbers, res] = size(pa);
@@ -92,8 +94,8 @@ plot3(pa(:,1)',pa(:,2)',pa(:,3)', 'b--*','linewidth', 1);
 xlabel('X (m)','fontsize',18);
 ylabel('Y (m)','fontsize',18);
 zlabel('Z (m)','fontsize',18);
-% legend('Desired Path', 'Actual Path','Location','best');
-legend('期望轨迹','实际轨迹', 'Location','best');
+legend('Desired Path', 'Actual Path','Location','best');
+% legend('期望轨迹','实际轨迹', 'Location','best');
 
 %误差分析
 figure;
@@ -140,7 +142,8 @@ ylabel('JointVelocity (deg/s)', 'FontName', 'times new Roman','fontsize',20);
 ax = gca;
 ax.YAxis.Exponent = 2;
 
-% show each joint angle
+%% show each joint angle
+%{
 figure;
 plot(Te, [0;joint_velocity(:,1)]', 'r','linewidth', 1);
 xlabel('Time (s)', 'FontName', 'times new Roman','fontsize',20);
@@ -179,7 +182,7 @@ ylabel('Joint7Velocity (deg/s)', 'FontName', 'times new Roman','fontsize',20);
 
 
 hold off;
-
+%}
 
 
 %% workspace match
